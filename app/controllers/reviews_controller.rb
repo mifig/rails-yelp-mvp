@@ -7,11 +7,15 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.create(review_params)
-    @review.restaurant = @restaurant
-    @review.save
+    @review = Review.new(review_params)
 
-    redirect_to restaurant_path(@restaurant)
+    if @review.save
+      @review.restaurant = @restaurant
+      @review.save
+      redirect_to :root
+    else
+      render :new
+    end
   end
 
   private
