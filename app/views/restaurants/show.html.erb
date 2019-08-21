@@ -1,0 +1,13 @@
+<h1><%= @restaurant.name %></h1>
+<br>
+<p><strong>Address:</strong> <%= @restaurant.address %> </p>
+<p><strong>Call:</strong> <%= link_to @restaurant.phone_number, "https://www.urbandictionary.com/define.php?term=Boobs" %></p>
+
+<h3>Reviews:</h3>
+<ul>
+  <% @reviews.each do |review| %>
+  <li><strong>Rating: </strong><%= review.rating %> - <%= review.content %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Add review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
