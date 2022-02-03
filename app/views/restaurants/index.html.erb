@@ -1,0 +1,7 @@
+<div class="row mt-3">
+  <h1>All Restaurants</h1>
+
+  <% @restaurants.each do |restaurant| %>
+    <p><%= link_to restaurant.name, restaurant_path(restaurant) %> | <%= restaurant.category.capitalize %></p>
+  <% end %>
+</div>
